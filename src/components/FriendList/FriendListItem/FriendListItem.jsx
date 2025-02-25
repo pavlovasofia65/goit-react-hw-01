@@ -9,7 +9,11 @@ export default function FriendListItem({avatar, name, isOnline}) {
     }
     return (
         <div className={css.friend}>
-            <img src={avatar} alt="Avatar" width="48" />
+            {avatar ? (
+                <img src={avatar} alt={name} width="48" />
+            ) : (
+                <img src="/goit-react-hw-01/public/default-avatar.jpg" alt="Default Avatar" width="48" />
+            )}
             <p>{name}</p>
             <p className={clsx(css.status, {
                 [css.online] : isOnline,
